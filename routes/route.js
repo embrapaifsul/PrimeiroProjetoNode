@@ -10,6 +10,13 @@ import {
     addtime, 
     listartime, 
     filtrartime,
+    abreedttime2, 
+    edttime2, 
+    abreaddtime2,
+    deletatime2, 
+    addtime2, 
+    listartime2, 
+    filtrartime2,
 
 } from '../controllers/controller.js'
 
@@ -34,6 +41,22 @@ router.get('/admin/time/edt/:id', abreedttime)
 router.post('/admin/time/edt/:id', edttime)
 
 
+
+//Admin 2
+
+router.get('/admin2/time/add', abreaddtime2)
+router.post('/admin2/time/add', addtime2)
+
+//rotas do modelo time (read)
+router.get('/admin2/time/lst', listartime2)
+router.post('/admin2/time/lst', filtrartime2)
+
+//rota do modelo time (delete)
+router.get('/admin2/time/del/:id', deletatime2)
+
+//rota do modelo time (editar)
+router.get('/admin2/time/edt/:id', abreedttime2)
+router.post('/admin2/time/edt/:id', edttime2)
 
 
 export default router

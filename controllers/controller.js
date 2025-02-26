@@ -34,10 +34,6 @@ export async function listartime(req, res) {
     res.render('admin/time/lst',{Times: timesDeFutebol});
 }
 
-export async function filtrartime(req, res) {
-    const resposta = timesDeFutebol.filter(time => time.nome === req.body.pesquisar)
-    res.render('admin/time/lst',{Times: resposta});
-}
 
 export async function deletatime(req, res) {
     timesDeFutebol =  timesDeFutebol.filter(time => time.id !== req.params.id);
@@ -47,9 +43,51 @@ export async function deletatime(req, res) {
 export async function abreedttime(req, res){
     const time =  timesDeFutebol.filter(time => time.id == req.params.id);
    
-    res.render('admin/time/edt.ejs',{Time: time})
+    res.render('admin/time/edt',{Time: time})
 }
 
 export async function edttime(req, res){
     res.redirect('/admin/time/lst')
+}
+
+export async function filtrartime(req, res) {
+    const resposta = timesDeFutebol.filter(time => time.nome === req.body.pesquisar)
+    res.render('admin/time/lst',{Times: resposta});
+}
+
+/* 
+TIME 2
+*/
+export async function abreaddtime2(req, res) {
+    res.render('admin2/time/add')
+}
+
+export async function addtime2(req, res) {
+    res.redirect('/admin2/time/add')
+}
+
+export async function listartime2(req, res) {
+
+    res.render('admin2/time/lst',{Times: timesDeFutebol});
+}
+
+
+export async function deletatime2(req, res) {
+    timesDeFutebol =  timesDeFutebol.filter(time => time.id !== req.params.id);
+    res.redirect('/admin2/time/lst')
+}
+
+export async function abreedttime2(req, res){
+    const time =  timesDeFutebol.filter(time => time.id == req.params.id);
+   
+    res.render('admin2/time/edt',{Time: time})
+}
+
+export async function edttime2(req, res){
+    res.redirect('/admin2/time/lst')
+}
+
+export async function filtrartime2(req, res) {
+    const resposta = timesDeFutebol.filter(time => time.nome === req.body.pesquisar)
+    res.render('admin2/time/lst',{Times: resposta});
 }

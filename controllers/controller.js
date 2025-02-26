@@ -11,6 +11,7 @@ var timesDeFutebol = [
     { id: 10, nome: "Vasco da Gama", estadio: "São Januário" }
   ];
 
+  import Time from '../models/time.js';
 
 
 
@@ -28,7 +29,8 @@ export async function addtime(req, res) {
 }
 
 export async function listartime(req, res) {
-
+    const timesDeFutebol = await Usuario.find({}).catch(function(err){console.log(err)});
+    
     res.render('admin/time/lst',{Times: timesDeFutebol});
 }
 

@@ -11,3 +11,9 @@ app.use(routes)
 
 app.listen(3001);
 
+import mongoose from 'mongoose'
+const url = "mongodb+srv://marcelosiedler:ifsul@ifsul.fify4.mongodb.net/"
+
+mongoose.connect(url)
+
+console.log(mongoose.connect)
